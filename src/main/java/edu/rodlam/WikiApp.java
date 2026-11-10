@@ -25,8 +25,8 @@ public class WikiApp {
 
             browser.open(wikiClient.getResults().get(choice));
 
-            cui.askContinue();
-            running = cui.getContinueChoice();
+            
+            running = cui.askContinue();
         }
     }
 
