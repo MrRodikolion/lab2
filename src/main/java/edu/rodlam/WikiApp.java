@@ -11,8 +11,6 @@ public class WikiApp {
         wikiClient = new WikiClient();
         cui = new ConsoleUI();
         browser = new BrowserLaunch();
-
-        mainLoop();
     }
 
     private void mainLoop() {
@@ -30,5 +28,9 @@ public class WikiApp {
             cui.askContinue();
             running = cui.getContinueChoice();
         }
+    }
+
+    public void run() {
+        mainLoop();
     }
 }
