@@ -1,6 +1,7 @@
 package edu.rodlam;
 
 import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import java.util.List;
@@ -14,19 +15,20 @@ public class Parser {
 
         <SearchResult> results = new ArrayList<>();
         
-        JsonObject root = JsonParser.parseString(json).getAsJsonArray("search")
-            Array results = root.getAsJsonObject("query").g
-            (JsonElement element : articles) {
-            JsonObject article = element.getAsJsonObject()
-            String title = article.get("title").getAsString()
-            int pageId = article.get("pageid").getAsInt();
+        JsonObject root = JsonParser.parseString(json).getAsJsonObject();
+JsonArray articles = root.getAsJsonObject("query")
+                         .getAsJsonArray("search");
 
-             results.add(new SearchResult(title, pageId));
+for (JsonElement element : articles) {
+    JsonObject article = element.getAsJsonObject();
 
-            }
-    }
-        
+    String title = article.get("title").getAsString();
+    int pageId = article.get("pageid").getAsInt();
+
+    results.add(new SearchResult(title, pageId));
+}
+
     public List<SearchResult> getResults() {
-       return results;
+        return results;
     }
 }
