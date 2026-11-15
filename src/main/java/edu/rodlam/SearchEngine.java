@@ -1,8 +1,10 @@
 package edu.rodlam;
 
+import java.net.URLEncoder;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.nio.charset.StandardCharsets;
 
 public class SearchEngine {
     private HttpClient httpClient;
@@ -13,9 +15,10 @@ public class SearchEngine {
     }
 
     public void search(String query) {
+        String encodedQuery = URLEncoder.encode(query, StandardCharsets.UTF_8);
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(java.net.URI.create(
-                        "https://en.wikipedia.org/w/api.php?action=query&list=search&format=json&srsearch=" + query))
+                        "https://ru.wikipedia.org/w/api.php?action=query&list=search&format=json&srsearch=" + encodedQuery))
                 .header("User-Agent", "Lab2WikiSearch/1.0")
                 .GET()
                 .build();

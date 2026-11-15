@@ -1,7 +1,5 @@
 package edu.rodlam;
 
-import com.google.gson.Gson;
-
 public class Main {
     public static void main(String[] args) {
         WikiApp wikiApp = new WikiApp();
