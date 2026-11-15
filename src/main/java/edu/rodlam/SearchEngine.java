@@ -15,7 +15,7 @@ public class SearchEngine {
     public void search(String query) {
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(java.net.URI.create(
-                        "https://en.wikipedia.org/w/api.php?action=query&list=search&format=json&srsearch=" + query))
+                        "https://ru.wikipedia.org/w/api.php?action=query&list=search&format=json&srsearch=" + query))
                 .header("User-Agent", "Lab2WikiSearch/1.0")
                 .GET()
                 .build();

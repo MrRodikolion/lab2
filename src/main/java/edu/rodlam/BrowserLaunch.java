@@ -20,6 +20,7 @@ public class BrowserLaunch {
     }
 
     public void open(String url) {
+
         try {
             if (browser()) {
                 Desktop.getDesktop().browse(URI.create(url));
