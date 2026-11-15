@@ -18,6 +18,9 @@ public boolean browser(String articleUrl) throws IOException {
     }
 
 }
+public void open(String url){
+
+}
 }
    
  

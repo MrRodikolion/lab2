@@ -1,5 +1,6 @@
 package edu.rodlam;
 
+import java.util.List;
 import java.util.Scanner;
 import java.net.URLEncoder;
 
@@ -18,10 +19,15 @@ public class ConsoleUI {
         return inputLine;
     }
 
-   public void displayResults(String output) {
+   public void displayResults(List<SearchResult> output) {
 
-        System.out.printf("Результат запроса: %s \n", output);
-}
+       System.out.print("Результат запроса:");
+       String getter;
+       for (int i = 0; i <= output.size(); i++) {
+           getter = output.get(i).getTitle();
+           System.out.println(i+1 + ") " + getter);
+       }
+   }
     public Integer getUserChoice() {
         Scanner in = new Scanner(System.in);
          System.out.print("Какую открыть?: \n");
@@ -51,4 +57,3 @@ public class ConsoleUI {
         
     }
 }
-

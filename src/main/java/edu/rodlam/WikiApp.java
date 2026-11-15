@@ -23,7 +23,7 @@ public class WikiApp {
             
             int choice = cui.getUserChoice();
 
-            browser.open(wikiClient.getResults().get(choice));
+            browser.open(wikiClient.getResults().get(choice).toString());
 
             
             running = cui.askContinue();
