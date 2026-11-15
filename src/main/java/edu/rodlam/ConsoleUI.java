@@ -1,8 +1,8 @@
 package edu.rodlam;
 
 import java.util.Scanner;
-import java.net.URLEncoder
-import io.charset.StandardCharsets
+import java.net.URLEncoder;
+
 
 public class ConsoleUI {
     public String getUserQuery() {
@@ -24,7 +24,7 @@ public class ConsoleUI {
 }
     public Integer getUserChoice() {
         Scanner in = new Scanner(System.in);
-         System.out.printf("Какую открыть?: \n");
+         System.out.print("Какую открыть?: \n");
          Integer num = in.nextInt(); 
          in.close();
             return num;

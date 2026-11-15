@@ -4,13 +4,13 @@ import java.util.List;
 
 public class WikiClient {
     private SearchEngine searchEngine;
-    private JParser jparser;
+    private Parser jparser;
 
-    private List<String> results;
+    private List<SearchResult> results;
 
     WikiClient() {
         this.searchEngine = new SearchEngine();
-        this.jparser = new JParser();
+        this.jparser = new Parser();
     }
 
     public void search(String query) {
@@ -25,7 +25,7 @@ public class WikiClient {
         this.results = jparser.getResults();
     }
 
-    public List<String> getResults() {
+    public List<SearchResult> getResults() {
         return results;
     }
 

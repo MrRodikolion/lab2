@@ -11,24 +11,31 @@ public class Parser {
 
     private List<SearchResult> results = new ArrayList<>();
 
-    public String parse(){
+    public void parse(String json) {
 
-        <SearchResult> results = new ArrayList<>();
-        
+        results = new ArrayList<>();
+
+
         JsonObject root = JsonParser.parseString(json).getAsJsonObject();
-JsonArray articles = root.getAsJsonObject("query")
-                         .getAsJsonArray("search");
+        JsonArray articles = root.getAsJsonObject("query")
+                .getAsJsonArray("search");
 
-for (JsonElement element : articles) {
-    JsonObject article = element.getAsJsonObject();
+        for (JsonElement element : articles) {
+            JsonObject article = element.getAsJsonObject();
 
-    String title = article.get("title").getAsString();
-    int pageId = article.get("pageid").getAsInt();
+            String title = article.get("title").getAsString();
+            int pageId = article.get("pageid").getAsInt();
 
-    results.add(new SearchResult(title, pageId));
-}
+            results.add(new SearchResult(title, pageId));
+        }
+
+    }
 
     public List<SearchResult> getResults() {
         return results;
+    }
+
+    public void setResults(List<SearchResult> results) {
+        this.results = results;
     }
 }

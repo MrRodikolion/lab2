@@ -1,14 +1,16 @@
 package edu.rodlam;
 
+import java.awt.*;
+import java.io.IOException;
+import java.net.URI;
 
 public class BrowserLaunch {
 
-public String browser(){
+public boolean browser(String articleUrl) throws IOException {
     if (Desktop.isDesktopSupported()
         && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
     Desktop.getDesktop().browse(URI.create(articleUrl));
-    boolean isDesktopSupported = Desktop.isDesktopSupported();
-    return isDesktopSupported;
+    return Desktop.isDesktopSupported();
     } 
     else {
         System.err.println("Desktop is not supported. Cannot open the browser.");
