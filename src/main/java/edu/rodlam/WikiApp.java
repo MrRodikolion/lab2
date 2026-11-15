@@ -18,13 +18,13 @@ public class WikiApp {
             String userQuery = cui.getUserQuery();
 
             wikiClient.search(userQuery);
-            
+
 
             cui.displayResults(wikiClient.getResults());
             
             int choice = cui.getUserChoice();
 
-            browser.open(wikiClient.getResults().get(choice).toString());
+            browser.open(wikiClient.getResults().get(choice).getUrl());
 
             
             running = cui.askContinue();
