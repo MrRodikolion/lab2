@@ -1,6 +1,7 @@
 package edu.rodlam;
 
 import java.io.IOException;
+import java.util.List;
 
 public class WikiApp {
     private boolean running;
@@ -18,16 +19,21 @@ public class WikiApp {
     private void mainLoop() throws IOException {
         while (running) {
             String userQuery = cui.getUserQuery();
-
             wikiClient.search(userQuery);
 
+            List<SearchResult> results = wikiClient.getResults();
+            if (results == null || results.isEmpty()) {
+                System.out.println("Нет результатов для этого запроса.");
+            } else {
+                cui.displayResults(results);
 
-            cui.displayResults(wikiClient.getResults());
-
-            int choice = cui.getUserChoice();
-
-            browser.open(wikiClient.getResults().get(choice).getUrl());
-
+                Integer choice = cui.getUserChoice();
+                if (choice == null || choice < 0 || choice >= results.size()) {
+                    System.out.println("Такого номера нет в списке результатов.");
+                } else {
+                    browser.open(results.get(choice).getUrl());
+                }
+            }
 
             running = cui.askContinue();
         }

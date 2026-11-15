@@ -39,21 +39,19 @@ public class ConsoleUI {
     public Integer getUserChoice() {
         Integer userChoice = null;
         System.out.print("Какую открыть?: \n");
+        String inpLine = in.nextLine().trim();
         try {
-
-            userChoice = in.nextInt();
+            userChoice = Integer.valueOf(inpLine);
         } catch (NumberFormatException e) {
-            System.out.print("введите число пожалуйста(");
-
+            System.out.print("введите число пожалуйста( ");
         }
-        return (userChoice);
+        return userChoice;
     }
 
     public Boolean askContinue() {
         boolean empty = false;
         String inputLine = null;
         while (inputLine == null) {
-            Scanner in = new Scanner(System.in);
             System.out.print("Хотите продолжить? (y/n): ");
             inputLine = in.nextLine();
             empty = inputLine.trim().isEmpty();
