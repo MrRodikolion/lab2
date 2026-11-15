@@ -16,10 +16,12 @@ public class SearchEngine {
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(java.net.URI.create(
                         "https://en.wikipedia.org/w/api.php?action=query&list=search&format=json&srsearch=" + query))
+                .header("User-Agent", "Lab2WikiSearch/1.0")
                 .GET()
                 .build();
         try {
             HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+            System.out.println("Response status code: " + response.statusCode());
             if (response.statusCode() == 200) {
                 this.lastResponse = response.body();
             }

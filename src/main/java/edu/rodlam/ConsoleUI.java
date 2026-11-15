@@ -20,10 +20,9 @@ public class ConsoleUI {
     }
 
    public void displayResults(List<SearchResult> output) {
-
        System.out.print("Результат запроса:");
        String getter;
-       for (int i = 0; i <= output.size(); i++) {
+       for (int i = 0; i < output.size(); i++) {
            getter = output.get(i).getTitle();
            System.out.println(i+1 + ") " + getter);
        }

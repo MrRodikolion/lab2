@@ -18,6 +18,7 @@ public class WikiApp {
             String userQuery = cui.getUserQuery();
 
             wikiClient.search(userQuery);
+            
 
             cui.displayResults(wikiClient.getResults());
             
